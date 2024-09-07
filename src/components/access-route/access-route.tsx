@@ -3,6 +3,7 @@ import { AppRoute, AuthorizationStatus } from '../../const';
 import Loader from '../loader/loader';
 
 type AccessRouteProps = {
+  authorizationStatus: AuthorizationStatus;
   children: JSX.Element;
 };
 
@@ -10,8 +11,11 @@ function createAccessRoute(
   statusToCheck: AuthorizationStatus,
   fallbackPath: AppRoute
 ) {
-  return function AccessRoute({ children }: AccessRouteProps) {
-    const status = AuthorizationStatus.Auth;
+  return function AccessRoute({
+    authorizationStatus,
+    children,
+  }: AccessRouteProps) {
+    const status = authorizationStatus;
     switch (status) {
       case statusToCheck:
         return children;

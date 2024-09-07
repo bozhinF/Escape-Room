@@ -6,7 +6,7 @@ import BookingPage from '../../pages/booking-page';
 import ContactsPage from '../../pages/contacts-page';
 import LoginPage from '../../pages/login-page';
 import MyQuestsPage from '../../pages/my-quests-page';
-import QuestsPage from '../../pages/quest-page';
+import QuestPage from '../../pages/quest-page';
 import { PrivateRoute, PublicRoute } from '../access-route/access-route';
 import Layout from '../layout/layout';
 
@@ -21,7 +21,14 @@ function App(): JSX.Element {
           element={<Layout authorizationStatus={authorizationStatus} />}
         >
           <Route index element={<MainPage />} />
-          <Route path={AppRoute.Booking} element={<BookingPage />} />
+          <Route
+            path={AppRoute.Booking}
+            element={
+              <PrivateRoute authorizationStatus={authorizationStatus}>
+                <BookingPage />
+              </PrivateRoute>
+            }
+          />
           <Route path={AppRoute.Contacts} element={<ContactsPage />} />
           <Route
             path={AppRoute.Login}
@@ -39,7 +46,7 @@ function App(): JSX.Element {
               </PrivateRoute>
             }
           />
-          <Route path={AppRoute.Quests} element={<QuestsPage />} />
+          <Route path={AppRoute.Quest} element={<QuestPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

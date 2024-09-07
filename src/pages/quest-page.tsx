@@ -1,4 +1,4 @@
-function QuestsPage(): JSX.Element {
+function QuestPage(): JSX.Element {
   return (
     <main className="decorated-page quest-page">
       <div className="decorated-page__decor" aria-hidden="true">
@@ -60,4 +60,4 @@ function QuestsPage(): JSX.Element {
   );
 }
 
-export default QuestsPage;
+export default QuestPage;

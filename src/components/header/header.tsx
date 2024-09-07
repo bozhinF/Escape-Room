@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AppRoute, AuthorizationStatus } from '../../const';
 
 type HeaderProps = {
@@ -20,41 +20,44 @@ function Header({ authorizationStatus }: HeaderProps): JSX.Element {
             </svg>
           </span>
         ) : (
-          <a
+          <Link
             className="logo header__logo"
-            href="index.html"
+            to={AppRoute.Main}
             aria-label="Перейти на Главную"
           >
             <svg width="134" height="52" aria-hidden="true">
               <use xlinkHref="#logo"></use>
             </svg>
-          </a>
+          </Link>
         )}
         <nav className="main-nav header__main-nav">
           <ul className="main-nav__list">
             <li className="main-nav__item">
-              <a className="link not-disabled active" href="index.html">
+              <NavLink className="link not-disabled" to={AppRoute.Main}>
                 Квесты
-              </a>
+              </NavLink>
             </li>
             <li className="main-nav__item">
-              <a className="link" href="contacts.html">
+              <NavLink className="link" to={AppRoute.Contacts}>
                 Контакты
-              </a>
+              </NavLink>
             </li>
             {isAuthorized && (
               <li className="main-nav__item">
-                <a className="link" href="my-quests.html">
+                <NavLink className="link" to={AppRoute.MyQuests}>
                   Мои бронирования
-                </a>
+                </NavLink>
               </li>
             )}
           </ul>
         </nav>
         <div className="header__side-nav">
-          <a className="btn btn--accent header__side-item" href="#">
+          <Link
+            className="btn btn--accent header__side-item"
+            to={AppRoute.Login}
+          >
             Выйти
-          </a>
+          </Link>
           <a
             className="link header__side-item header__phone-link"
             href="tel:88003335599"

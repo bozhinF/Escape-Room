@@ -4,7 +4,7 @@ export enum AppRoute {
   Contacts = '/contacts',
   Login = '/login',
   MyQuests = '/my-quests',
-  Quests = '/quests',
+  Quest = '/quest',
 }
 
 export enum AuthorizationStatus {

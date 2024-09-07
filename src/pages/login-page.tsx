@@ -84,10 +84,7 @@ function LoginPage(): JSX.Element {
                       name="password"
                       placeholder="Пароль"
                       required
-                    >
-                      {' '}
-                      /
-                    </input>
+                    />
                   </div>
                 </div>
                 <button

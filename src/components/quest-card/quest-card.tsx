@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Quest } from '../../types';
+import { Quest } from '../../types/types';
 import { AppRoute, Level } from '../../const';
 
 const mockQuest: Quest = {

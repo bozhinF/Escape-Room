@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import MainPage from '../../pages/main-page';
-import { AppRoute, AuthorizationStatus } from '../../const';
+import { AppRoute } from '../../const';
 import NotFoundPage from '../../pages/not-found-page/not-found-page';
 import BookingPage from '../../pages/booking-page';
 import ContactsPage from '../../pages/contacts-page';
@@ -9,10 +9,12 @@ import MyQuestsPage from '../../pages/my-quests-page';
 import QuestPage from '../../pages/quest-page';
 import { PrivateRoute, PublicRoute } from '../access-route/access-route';
 import Layout from '../layout/layout';
-
-const authorizationStatus = AuthorizationStatus.Auth;
+import { getUserStatus } from '../../store/user-slice/selectors';
+import { useAppSelector } from '../../hooks';
 
 function App(): JSX.Element {
+  const authorizationStatus = useAppSelector(getUserStatus);
+
   return (
     <BrowserRouter>
       <Routes>

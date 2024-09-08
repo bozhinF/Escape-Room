@@ -32,3 +32,12 @@ export const Level = {
   [QuestLevel.Hard]: 'сложный',
   [QuestLevel.Medium]: 'средний',
 };
+
+export enum NameSpace {
+  User = 'USER',
+  Quests = 'QUESTS',
+}
+
+export enum Endpoint {
+  Login = 'login',
+}

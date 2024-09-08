@@ -1,3 +1,5 @@
+import QuestCard from '../components/quest-card/quest-card';
+
 function MainPage(): JSX.Element {
   return (
     <main className="page-content">
@@ -134,6 +136,7 @@ function MainPage(): JSX.Element {
         </div>
         <h2 className="title visually-hidden">Выберите квест</h2>
         <div className="cards-grid">
+          <QuestCard />
           <div className="quest-card">
             <div className="quest-card__img">
               <picture>

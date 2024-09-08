@@ -39,5 +39,13 @@ export enum NameSpace {
 }
 
 export enum Endpoint {
-  Login = 'login',
+  Login = '/login',
+  Quests = '/quest',
+}
+
+export enum RequestStatus {
+  Loading = 'Loading',
+  Success = 'Success',
+  Failed = 'Failed',
+  Idle = 'Idle',
 }

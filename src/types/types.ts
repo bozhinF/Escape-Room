@@ -16,6 +16,8 @@ export type Quest = {
   peopleMinMax: [number, number];
 };
 
+export type Quests = Quest[];
+
 export type AuthorizationInfo = {
   email: string;
   token: string;

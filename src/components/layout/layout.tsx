@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import { AuthorizationStatus } from '../../const';
+import { AuthorizationStatus } from '../../const/const';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 

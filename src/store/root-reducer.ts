@@ -1,5 +1,5 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import { NameSpace } from '../const';
+import { NameSpace } from '../const/const';
 import { userSlice } from './user-slice/user-slice';
 import { questsSlice } from './quests-slice/quests-slice';
 

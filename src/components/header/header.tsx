@@ -1,5 +1,5 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { AppRoute, AuthorizationStatus } from '../../const';
+import { AppRoute, AuthorizationStatus } from '../../const/const';
 
 type HeaderProps = {
   authorizationStatus: AuthorizationStatus;

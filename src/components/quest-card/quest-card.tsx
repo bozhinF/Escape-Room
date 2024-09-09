@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Quest } from '../../types/types';
-import { AppRoute, Level } from '../../const';
+import { AppRoute, Level } from '../../const/const';
 
 const mockQuest: Quest = {
   id: 'aba664c3-bdf3-4fb3-b8f3-42e007864bbf',

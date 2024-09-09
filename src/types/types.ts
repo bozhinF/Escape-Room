@@ -1,4 +1,5 @@
 export type QuestLevelValue = 'easy' | 'medium' | 'hard';
+
 export type QuestTypeValue =
   | 'adventures'
   | 'horror'

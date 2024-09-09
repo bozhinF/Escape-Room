@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Quests } from '../../types/types';
 import { AxiosInstance } from 'axios';
-import { Endpoint } from '../../const';
+import { Endpoint } from '../../const/const';
 
 export const fetchAllQuests = createAsyncThunk<
   Quests,

@@ -1,4 +1,4 @@
-import { NameSpace } from '../../const';
+import { NameSpace } from '../../const/const';
 import { State } from '../../types/state';
 
 export const getAllQuests = (state: Pick<State, NameSpace.Quests>) =>
@@ -6,3 +6,6 @@ export const getAllQuests = (state: Pick<State, NameSpace.Quests>) =>
 
 export const getAllQuestsStatus = (state: Pick<State, NameSpace.Quests>) =>
   state[NameSpace.Quests].allQuestsStatus;
+
+export const getActiveFilters = (state: Pick<State, NameSpace.Quests>) =>
+  state[NameSpace.Quests].activeFilters;

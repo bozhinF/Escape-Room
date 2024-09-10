@@ -1,3 +1,4 @@
+import { PasswordLength } from '../const/const';
 import { FilterStore } from '../types/filter';
 import { Quests } from '../types/types';
 
@@ -15,3 +16,9 @@ export const filter = (
 
   return filteredQuests;
 };
+
+export const checkPasswordValid = (password: string): boolean =>
+  password.length >= PasswordLength.Min &&
+  password.length <= PasswordLength.Max &&
+  /\d/g.test(password) &&
+  /[a-zA-Zа-яА-Я]/g.test(password);

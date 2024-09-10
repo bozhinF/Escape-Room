@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { AuthorizationStatus, NameSpace } from '../../const/const';
-import { checkLogin } from './thunk';
+import { checkLogin, login, logout } from './thunk';
 import { AuthorizationInfo } from '../../types/types';
 
 type UserState = {
@@ -26,5 +26,14 @@ export const userSlice = createSlice({
       .addCase(checkLogin.rejected, (state) => {
         state.authorizationStatus = AuthorizationStatus.NoAuth;
         state.userProfile = null;
+      })
+      .addCase(login.fulfilled, (state) => {
+        state.authorizationStatus = AuthorizationStatus.Auth;
+      })
+      .addCase(login.rejected, (state) => {
+        state.authorizationStatus = AuthorizationStatus.NoAuth;
+      })
+      .addCase(logout.fulfilled, (state) => {
+        state.authorizationStatus = AuthorizationStatus.NoAuth;
       }),
 });

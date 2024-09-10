@@ -41,6 +41,7 @@ export enum NameSpace {
 export enum Endpoint {
   Login = '/login',
   Quests = '/quest',
+  Logout = '/logout',
 }
 
 export enum RequestStatus {
@@ -48,4 +49,9 @@ export enum RequestStatus {
   Success = 'Success',
   Failed = 'Failed',
   Idle = 'Idle',
+}
+
+export enum PasswordLength {
+  Min = 3,
+  Max = 15,
 }

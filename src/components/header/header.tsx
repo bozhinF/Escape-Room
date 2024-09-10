@@ -1,13 +1,14 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AppRoute, AuthorizationStatus } from '../../const/const';
+import SignUser from '../sign-user/sign-user';
 
 type HeaderProps = {
   authorizationStatus: AuthorizationStatus;
 };
 
 function Header({ authorizationStatus }: HeaderProps): JSX.Element {
-  const isAuthorized = authorizationStatus === AuthorizationStatus.Auth;
   const { pathname } = useLocation();
+  const isAuthorized = authorizationStatus === AuthorizationStatus.Auth;
   const isMainPage = pathname === AppRoute.Main;
 
   return (
@@ -52,12 +53,7 @@ function Header({ authorizationStatus }: HeaderProps): JSX.Element {
           </ul>
         </nav>
         <div className="header__side-nav">
-          <Link
-            className="btn btn--accent header__side-item"
-            to={AppRoute.Login}
-          >
-            Выйти
-          </Link>
+          <SignUser />
           <a
             className="link header__side-item header__phone-link"
             href="tel:88003335599"

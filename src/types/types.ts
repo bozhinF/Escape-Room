@@ -23,3 +23,8 @@ export type AuthorizationInfo = {
   email: string;
   token: string;
 };
+
+export type LoginAuthorization = {
+  email: string;
+  password: string;
+};

@@ -1,4 +1,31 @@
+import { useRef } from 'react';
+import { useAppDispatch } from '../hooks';
+import { login } from '../store/user-slice/thunk';
+import { checkPasswordValid } from '../util/util';
+
 function LoginPage(): JSX.Element {
+  const emailRef = useRef<HTMLInputElement | null>(null);
+  const passwordRef = useRef<HTMLInputElement | null>(null);
+  const dispatch = useAppDispatch();
+
+  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const email = emailRef.current?.value || '';
+    const password = passwordRef.current?.value || '';
+    const isPasswordValid = checkPasswordValid(password);
+
+    if (!isPasswordValid) {
+      return;
+    }
+
+    dispatch(
+      login({
+        email,
+        password,
+      })
+    );
+  };
+
   return (
     <main className="decorated-page login">
       <div className="decorated-page__decor" aria-hidden="true">
@@ -22,6 +49,7 @@ function LoginPage(): JSX.Element {
             className="login-form"
             action="https://echo.htmlacademy.ru/"
             method="post"
+            onSubmit={handleFormSubmit}
           >
             <div className="login-form__inner-wrapper">
               <h1 className="title title--size-s login-form__title">Вход</h1>
@@ -31,6 +59,7 @@ function LoginPage(): JSX.Element {
                     E&nbsp;&ndash;&nbsp;mail
                   </label>
                   <input
+                    ref={emailRef}
                     type="email"
                     id="email"
                     name="email"
@@ -43,6 +72,7 @@ function LoginPage(): JSX.Element {
                     Пароль
                   </label>
                   <input
+                    ref={passwordRef}
                     type="password"
                     id="password"
                     name="password"

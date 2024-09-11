@@ -28,3 +28,18 @@ export type LoginAuthorization = {
   email: string;
   password: string;
 };
+
+export type QuestDetails = {
+  id: string;
+  title: string;
+  previewImg: string;
+  previewImgWebp: string;
+  level: QuestLevelValue;
+  type: QuestTypeValue;
+  peopleMinMax: [number, number];
+  description: string;
+  coverImg: string;
+  coverImgWebp: string;
+};
+
+export type QuestId = { id: string | undefined };

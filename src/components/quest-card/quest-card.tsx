@@ -2,21 +2,11 @@ import { Link } from 'react-router-dom';
 import { Quest } from '../../types/types';
 import { AppRoute, Level } from '../../const/const';
 
-const mockQuest: Quest = {
-  id: 'aba664c3-bdf3-4fb3-b8f3-42e007864bbf',
-  title: 'Склепчик',
-  previewImg: 'https://{server-url}/static/quest/sklep.jpg',
-  previewImgWebp: 'https://{server-url}/static/quest/sklep.webp',
-  level: 'easy',
-  type: 'adventures',
-  peopleMinMax: [5, 10],
-};
-
 type QuestCardProps = {
-  quest?: Quest;
+  quest: Quest;
 };
 
-function QuestCard({ quest = mockQuest }: QuestCardProps): JSX.Element {
+function QuestCard({ quest }: QuestCardProps): JSX.Element {
   const {
     id,
     title,
@@ -49,7 +39,10 @@ function QuestCard({ quest = mockQuest }: QuestCardProps): JSX.Element {
       </div>
       <div className="quest-card__content">
         <div className="quest-card__info-wrapper">
-          <Link className="quest-card__link" to={`${AppRoute.Quest}:${id}`}>
+          <Link
+            className="quest-card__link"
+            to={`${AppRoute.Quest.replace(':id', id)}`}
+          >
             {title}
           </Link>
         </div>

@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { NameSpace, RequestStatus } from '../../const/const';
-import { Quests } from '../../types/types';
-import { fetchAllQuests } from './thunk';
+import { QuestDetails, Quests } from '../../types/types';
+import { fetchAllQuests, fetchQuest } from './thunk';
 import { questLevelFilter, questTypeFilter } from '../../const/filter';
 import { FilterStore, FilterType } from '../../types/filter';
 
@@ -9,6 +9,8 @@ type QuestsState = {
   allQuestsStatus: RequestStatus;
   allQuests: Quests;
   activeFilters: FilterStore[];
+  questDetailsStatus: RequestStatus;
+  questDetails: QuestDetails | null;
 };
 
 const filters = [questLevelFilter, questTypeFilter].map((filter) => ({
@@ -21,6 +23,8 @@ const initialState: QuestsState = {
   allQuestsStatus: RequestStatus.Idle,
   allQuests: [],
   activeFilters: filters,
+  questDetailsStatus: RequestStatus.Idle,
+  questDetails: null,
 };
 
 export const questsSlice = createSlice({
@@ -49,6 +53,16 @@ export const questsSlice = createSlice({
       })
       .addCase(fetchAllQuests.rejected, (state) => {
         state.allQuestsStatus = RequestStatus.Failed;
+      })
+      .addCase(fetchQuest.pending, (state) => {
+        state.questDetailsStatus = RequestStatus.Loading;
+      })
+      .addCase(fetchQuest.fulfilled, (state, action) => {
+        state.questDetails = action.payload;
+        state.questDetailsStatus = RequestStatus.Success;
+      })
+      .addCase(fetchQuest.rejected, (state) => {
+        state.questDetailsStatus = RequestStatus.Failed;
       }),
 });
 

@@ -14,11 +14,11 @@ export enum QuestType {
 
 export enum AppRoute {
   Main = '/',
-  Booking = '/booking',
+  Booking = '/quest/:id/booking',
   Contacts = '/contacts',
   Login = '/login',
   MyQuests = '/my-quests',
-  Quest = '/quest',
+  Quest = '/quest/:id',
 }
 
 export enum AuthorizationStatus {
@@ -33,6 +33,14 @@ export const Level = {
   [QuestLevel.Medium]: 'средний',
 };
 
+export const Type = {
+  [QuestType.Adventures]: 'Приключения',
+  [QuestType.Horror]: 'Ужасы',
+  [QuestType.Mystic]: 'Мистика',
+  [QuestType.Detective]: 'Детектив',
+  [QuestType.SciFi]: 'Sci-fi',
+};
+
 export enum NameSpace {
   User = 'USER',
   Quests = 'QUESTS',
@@ -42,6 +50,7 @@ export enum Endpoint {
   Login = '/login',
   Quests = '/quest',
   Logout = '/logout',
+  Quest = '/quest',
 }
 
 export enum RequestStatus {

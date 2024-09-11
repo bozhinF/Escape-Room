@@ -54,8 +54,8 @@ function App(): JSX.Element {
             }
           />
           <Route path={AppRoute.Quest} element={<QuestPage />} />
-          <Route path="*" element={<NotFoundPage />} />
         </Route>
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
